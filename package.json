@@ -1,0 +1,26 @@
+{
+  "name": "code-reading-note-chokidar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "filter.js",
+  "dependencies": {
+    "fsevents": "^1.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zbw322092/code-reading-note-chokidar.git"
+  },
+  "author": "Bowen Zhong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zbw322092/code-reading-note-chokidar/issues"
+  },
+  "homepage": "https://github.com/zbw322092/code-reading-note-chokidar#readme",
+  "optionalDependencies": {
+    "fsevents": "^1.1.2"
+  }
+}
