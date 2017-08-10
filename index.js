@@ -1,4 +1,36 @@
-const sysPath = require('path');
+var EventEmitter = require('events').EventEmitter;
+var fs = require('fs');
+var sysPath = require('path');
+var asyncEach = require('async-each');
+var anymatch = require('anymatch');
+var globParent = require('glob-parent');
+var isGlob = require('is-glob');
+var isAbsolute = require('path-is-absolute');
+var inherits = require('inherits');
+
+var FsEventsHandler = require('./lib/fsevents-handler');
+
+var arrify = function(value) {
+  if (value == null) return [];
+  return Array.isArray(value) ? value : [value];
+};
+
+var flatten = function(list, result) {
+  if (result == null) result = [];
+  list.forEach(function(item) {
+    if (Array.isArray(item)) {
+      flatten(item, result);
+    } else {
+      result.push(item);
+    }
+  });
+  return result;
+};
+
+// Little isString util for use in Array#every.
+var isString = function(thing) {
+  return typeof thing === 'string';
+};
 
 FSWatcher.prototype._getWatchedDir = function(directory) {
   // absloute directory path
